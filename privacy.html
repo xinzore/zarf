@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası - Zarf</title>
+    <meta name="description" content="Zarf e-posta uygulaması gizlilik politikası. Verilerinizi nasıl koruyoruz.">
+    <link rel="icon" type="image/png" href="icon/logo-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --bg-dark: #0f0f14;
+            --bg-card: #18181f;
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .updated {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .content ul {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text);
+            margin: 0;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                padding-top: 6rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="privacy.html" class="active">Gizlilik</a></li>
+                <li><a href="terms.html">Kullanım Şartları</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Gizlilik Politikası</h1>
+            <p class="updated">Son güncelleme: 9 Şubat 2026</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <p><strong>🔒 Özet:</strong> Zarf, gizliliğinize saygı duyar. Tüm verileriniz yerel olarak cihazınızda
+                    saklanır. Hiçbir kişisel veri sunucularımıza gönderilmez veya üçüncü taraflarla paylaşılmaz.</p>
+            </div>
+
+            <h2>1. Giriş</h2>
+            <p>Zarf ("biz", "bize" veya "bizim"), kullanıcılarının gizliliğini korumayı taahhüt eder. Bu Gizlilik
+                Politikası, Zarf masaüstü e-posta uygulamasını ("Uygulama") kullandığınızda bilgilerinizin nasıl
+                toplandığını, kullanıldığını ve korunduğunu açıklar.</p>
+
+            <h2>2. Topladığımız Bilgiler</h2>
+
+            <h3>2.1 E-posta Hesap Bilgileri</h3>
+            <p>Uygulama, e-posta hesaplarınıza bağlanmak için aşağıdaki bilgileri yerel olarak saklar:</p>
+            <ul>
+                <li>E-posta adresi</li>
+                <li>IMAP/SMTP sunucu ayarları</li>
+                <li>OAuth erişim tokenları (Google, Microsoft için)</li>
+            </ul>
+
+            <h3>2.2 E-posta İçeriği</h3>
+            <p>E-postalarınız, çevrimdışı erişim sağlamak için yerel veritabanınızda önbelleğe alınır. Bu veriler:</p>
+            <ul>
+                <li>Yalnızca cihazınızda saklanır</li>
+                <li>Hiçbir sunucuya gönderilmez</li>
+                <li>Uygulama kaldırıldığında silinir</li>
+            </ul>
+
+            <h2>3. OAuth Kimlik Doğrulama</h2>
+            <p>Gmail ve Outlook hesapları için OAuth 2.0 kimlik doğrulama protokolünü kullanıyoruz. Bu süreçte:</p>
+            <ul>
+                <li>Şifrenizi hiçbir zaman görmeyiz veya saklamayız</li>
+                <li>Yalnızca e-posta okuma ve gönderme izinlerini talep ederiz</li>
+                <li>Erişim tokenları güvenli bir şekilde yerel cihazınızda şifrelenir</li>
+                <li>İstediğiniz zaman Google veya Microsoft hesap ayarlarınızdan erişimi iptal edebilirsiniz</li>
+            </ul>
+
+            <h2>4. Veri Güvenliği</h2>
+            <p>Verilerinizi korumak için aşağıdaki önlemleri alıyoruz:</p>
+            <ul>
+                <li><strong>Yerel Depolama:</strong> Tüm veriler yalnızca cihazınızda saklanır</li>
+                <li><strong>Şifreleme:</strong> Hassas bilgiler (tokenlar, parolalar) şifrelenerek saklanır</li>
+                <li><strong>Güvenli Bağlantı:</strong> E-posta sunucularına TLS/SSL şifreli bağlantı kullanılır</li>
+                <li><strong>Sunucu Yok:</strong> Hiçbir veri dış sunuculara gönderilmez</li>
+            </ul>
+
+            <h2>5. Üçüncü Taraf Hizmetleri</h2>
+            <p>Uygulama, e-posta hizmetlerinize bağlanmak için aşağıdaki üçüncü taraf API'lerini kullanır:</p>
+            <ul>
+                <li><strong>Google Gmail API:</strong> Gmail hesaplarına erişim için</li>
+                <li><strong>Microsoft Graph API:</strong> Outlook/Hotmail hesaplarına erişim için</li>
+            </ul>
+            <p>Bu hizmetlerin kendi gizlilik politikaları geçerlidir.</p>
+
+            <h2>6. Çocukların Gizliliği</h2>
+            <p>Uygulamamız 13 yaşın altındaki çocuklara yönelik değildir. 13 yaşın altındaki çocuklardan bilerek kişisel
+                bilgi toplamıyoruz.</p>
+
+            <h2>7. Veri Saklama ve Silme</h2>
+            <p>Verileriniz tamamen sizin kontrolünüzdedir:</p>
+            <ul>
+                <li>Hesabınızı uygulama içinden istediğiniz zaman kaldırabilirsiniz</li>
+                <li>Uygulamayı kaldırdığınızda tüm yerel veriler silinir</li>
+                <li>Sunucularımızda saklanacak veri olmadığından, bizimle iletişime geçmenize gerek yoktur</li>
+            </ul>
+
+            <h2>8. Değişiklikler</h2>
+            <p>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Önemli değişiklikler yapıldığında, uygulama
+                güncellemesi veya web sitemiz aracılığıyla bilgilendirileceksiniz.</p>
+
+            <h2>9. İletişim</h2>
+            <p>Gizlilik politikamız hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
+            <ul>
+                <li>E-posta: contact@zarf.app</li>
+                <li>GitHub: github.com/user/zarf</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Şartları</a>
+                <a href="https://github.com/user/zarf">GitHub</a>
+            </div>
+            <p class="footer-copy">© 2026 Zarf. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kullanım Şartları - Zarf</title>
+    <meta name="description" content="Zarf e-posta uygulaması kullanım şartları ve koşulları.">
+    <link rel="icon" type="image/png" href="icon/logo-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --bg-dark: #0f0f14;
+            --bg-card: #18181f;
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header .updated {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .content ul,
+        .content ol {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content strong {
+            color: var(--text);
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text);
+            margin: 0;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            main {
+                padding-top: 6rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="privacy.html">Gizlilik</a></li>
+                <li><a href="terms.html" class="active">Kullanım Şartları</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>Kullanım Şartları</h1>
+            <p class="updated">Son güncelleme: 9 Şubat 2026</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight-box">
+                <p><strong>📋 Özet:</strong> Zarf ücretsiz ve açık kaynaklı bir yazılımdır. Kişisel veya ticari
+                    amaçlarla özgürce kullanabilirsiniz. Yazılım "olduğu gibi" sunulmaktadır.</p>
+            </div>
+
+            <h2>1. Kabul</h2>
+            <p>Zarf uygulamasını ("Uygulama") indirerek, yükleyerek veya kullanarak bu Kullanım Şartlarını kabul etmiş
+                olursunuz. Bu şartları kabul etmiyorsanız, lütfen Uygulamayı kullanmayın.</p>
+
+            <h2>2. Lisans</h2>
+            <p>Zarf, MIT Lisansı altında dağıtılan açık kaynaklı bir yazılımdır. Bu lisans kapsamında:</p>
+            <ul>
+                <li>Yazılımı ücretsiz olarak kullanabilirsiniz</li>
+                <li>Yazılımı kopyalayabilir ve dağıtabilirsiniz</li>
+                <li>Yazılımı değiştirebilir ve türev çalışmalar oluşturabilirsiniz</li>
+                <li>Yazılımı ticari amaçlarla kullanabilirsiniz</li>
+            </ul>
+            <p>Tek koşul, orijinal telif hakkı ve lisans bildiriminin korunmasıdır.</p>
+
+            <h2>3. Kullanım Koşulları</h2>
+            <p>Uygulamayı kullanırken aşağıdaki kurallara uymayı kabul edersiniz:</p>
+            <ul>
+                <li>Yasalara uygun şekilde kullanmak</li>
+                <li>Üçüncü tarafların haklarına saygı göstermek</li>
+                <li>Spam veya istenmeyen e-posta göndermemek</li>
+                <li>Uygulamayı kötü amaçlı faaliyetler için kullanmamak</li>
+                <li>E-posta sağlayıcılarının kullanım şartlarına uymak</li>
+            </ul>
+
+            <h2>4. Üçüncü Taraf Hizmetleri</h2>
+            <p>Uygulama, aşağıdaki üçüncü taraf e-posta hizmetlerine bağlanabilir:</p>
+            <ul>
+                <li>Google Gmail</li>
+                <li>Microsoft Outlook/Hotmail</li>
+                <li>Diğer IMAP/POP3/SMTP destekli servisler</li>
+            </ul>
+            <p>Bu hizmetleri kullanırken, ilgili hizmet sağlayıcının kullanım şartları ve gizlilik politikalarına da
+                tabi olursunuz.</p>
+
+            <h2>5. Sorumluluk Reddi</h2>
+            <p>Uygulama "OLDUĞU GİBİ" ve "MEVCUT HALİYLE" sunulmaktadır. Aşağıdaki konularda herhangi bir garanti
+                vermiyoruz:</p>
+            <ul>
+                <li>Uygulamanın kesintisiz veya hatasız çalışacağı</li>
+                <li>Uygulamanın tüm e-posta hizmetleriyle uyumlu olacağı</li>
+                <li>Uygulamanın özel gereksinimlerinizi karşılayacağı</li>
+                <li>E-posta teslimatının garantili olacağı</li>
+            </ul>
+
+            <h2>6. Sorumluluk Sınırlaması</h2>
+            <p>Yasaların izin verdiği azami ölçüde, aşağıdaki durumlardan sorumlu tutulamayız:</p>
+            <ul>
+                <li>Veri kaybı veya hasarı</li>
+                <li>İş kesintisi</li>
+                <li>Dolaylı, arızi veya cezai zararlar</li>
+                <li>Üçüncü taraf hizmetlerinden kaynaklanan sorunlar</li>
+            </ul>
+
+            <h2>7. Güncellemeler</h2>
+            <p>Uygulama güncellemeleri:</p>
+            <ul>
+                <li>Zaman zaman yeni özellikler ve hata düzeltmeleri sunabiliriz</li>
+                <li>Güncellemeler isteğe bağlıdır</li>
+                <li>Önemli güvenlik güncellemeleri için bildirim yapılabilir</li>
+            </ul>
+
+            <h2>8. Destek</h2>
+            <p>Zarf topluluk destekli bir projedir:</p>
+            <ul>
+                <li>GitHub üzerinden sorun bildirebilirsiniz</li>
+                <li>Topluluk forumlarından yardım alabilirsiniz</li>
+                <li>Resmi teknik destek garantisi verilmemektedir</li>
+            </ul>
+
+            <h2>9. Değişiklikler</h2>
+            <p>Bu Kullanım Şartlarını herhangi bir zamanda değiştirme hakkımız saklıdır. Değişiklikler:</p>
+            <ul>
+                <li>Bu sayfada yayınlanarak yürürlüğe girer</li>
+                <li>Önemli değişiklikler için uygulama içi bildirim yapılabilir</li>
+                <li>Değişiklik sonrası Uygulamayı kullanmaya devam etmeniz, yeni şartları kabul ettiğiniz anlamına gelir
+                </li>
+            </ul>
+
+            <h2>10. Uygulanacak Hukuk</h2>
+            <p>Bu Kullanım Şartları, Türkiye Cumhuriyeti yasalarına tabidir. Uyuşmazlıklar Türkiye mahkemelerinde
+                çözümlenecektir.</p>
+
+            <h2>11. İletişim</h2>
+            <p>Bu Kullanım Şartları hakkında sorularınız için:</p>
+            <ul>
+                <li>E-posta: contact@zarf.app</li>
+                <li>GitHub: github.com/user/zarf</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Şartları</a>
+                <a href="https://github.com/user/zarf">GitHub</a>
+            </div>
+            <p class="footer-copy">© 2026 Zarf. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

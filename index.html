@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarf - Modern E-posta İstemcisi</title>
+    <meta name="description" content="Zarf, tüm e-posta hesaplarınızı tek bir yerde yönetmenizi sağlayan modern, hızlı ve güvenli bir masaüstü e-posta uygulamasıdır.">
+    <link rel="icon" type="image/png" href="icon/logo-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --primary-dark: #7c3aed;
+            --bg-dark: #0f0f14;
+            --bg-card: #18181f;
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text);
+        }
+
+        .logo img {
+            width: 36px;
+            height: 36px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            background: radial-gradient(ellipse at center top, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.125rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Providers Section */
+        .providers {
+            padding: 6rem 2rem;
+            background: var(--bg-card);
+        }
+
+        .providers-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .provider-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .provider-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .provider-logo:hover {
+            opacity: 1;
+        }
+
+        .provider-logo svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .provider-logo span {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0.05) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 24px;
+            padding: 4rem 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .provider-logos {
+                gap: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Özellikler</a></li>
+                <li><a href="#providers">Desteklenen Servisler</a></li>
+                <li><a href="privacy.html">Gizlilik</a></li>
+                <li><a href="terms.html">Kullanım Şartları</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    ✨ Ücretsiz & Açık Kaynak
+                </div>
+                <h1>Tüm E-postalarınız Tek Bir Yerde</h1>
+                <p>Zarf, Gmail, Outlook ve diğer e-posta hesaplarınızı tek bir modern arayüzde birleştiren güçlü bir masaüstü uygulamasıdır.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/user/zarf/releases" class="btn btn-primary">
+                        📥 İndir
+                    </a>
+                    <a href="https://github.com/user/zarf" class="btn btn-secondary">
+                        ⭐ GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2 class="section-title">Neden Zarf?</h2>
+            <p class="section-subtitle">Modern dünyada e-posta yönetimini kolaylaştırmak için tasarlandı.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📬</div>
+                    <h3>Çoklu Hesap Desteği</h3>
+                    <p>Gmail, Outlook, Yahoo ve IMAP/POP3 destekleyen tüm e-posta servislerini tek bir yerden yönetin.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Güvenli Bağlantı</h3>
+                    <p>OAuth 2.0 ile güvenli giriş. Şifreleriniz yerel olarak şifrelenir ve asla sunucularda depolanmaz.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Hızlı & Hafif</h3>
+                    <p>Electron ile geliştirilmiş modern uygulama. Düşük kaynak tüketimi, yüksek performans.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌙</div>
+                    <h3>Karanlık Mod</h3>
+                    <p>Gözlerinizi koruyacak şık karanlık tema. Sistem temasına otomatik uyum sağlar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Anlık Bildirimler</h3>
+                    <p>Yeni e-postalardan anında haberdar olun. Masaüstü bildirimleri ile hiçbir mesajı kaçırmayın.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Modern Arayüz</h3>
+                    <p>Temiz, minimal ve kullanıcı dostu tasarım. E-postalarınıza odaklanmanızı sağlar.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="providers" class="providers">
+            <div class="providers-content">
+                <h2 class="section-title">Desteklenen Servisler</h2>
+                <p class="section-subtitle">Popüler e-posta sağlayıcılarıyla sorunsuz çalışır.</p>
+                
+                <div class="provider-logos">
+                    <div class="provider-logo">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/>
+                        </svg>
+                        <span>Gmail</span>
+                    </div>
+                    <div class="provider-logo">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 7.387v10.478c0 .23-.08.424-.238.576-.158.156-.354.234-.586.234H.824a.793.793 0 0 1-.586-.234A.777.777 0 0 1 0 17.865V7.387c0-.15.034-.284.107-.414.069-.126.161-.233.277-.316l11.31-6.49a.665.665 0 0 1 .612 0l11.31 6.49c.116.083.207.19.277.316.072.13.107.264.107.414zM12 14.16L1.062 7.775v9.855h21.876V7.775L12 14.16z" fill="#0078D4"/>
+                        </svg>
+                        <span>Outlook</span>
+                    </div>
+                    <div class="provider-logo">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 4.8c1.323 0 2.4 1.077 2.4 2.4S13.323 9.6 12 9.6 9.6 8.523 9.6 7.2 10.677 4.8 12 4.8zm4.8 12a2.4 2.4 0 0 1-2.4 2.4H9.6a2.4 2.4 0 0 1-2.4-2.4v-.6c0-2.32 1.08-3.6 4.8-3.6s4.8 1.28 4.8 3.6v.6z" fill="#6001D2"/>
+                        </svg>
+                        <span>Yahoo Mail</span>
+                    </div>
+                    <div class="provider-logo">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#8b5cf6"/>
+                        </svg>
+                        <span>IMAP/POP3</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-box">
+                <h2>Hemen Başlayın</h2>
+                <p>Zarf'ı indirin ve e-postalarınızı yönetmenin yeni yolunu keşfedin. Tamamen ücretsiz!</p>
+                <a href="https://github.com/user/zarf/releases" class="btn btn-primary">
+                    📥 Zarf'ı İndir
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="icon/logo-32.png" alt="Zarf">
+                <span>Zarf</span>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Gizlilik Politikası</a>
+                <a href="terms.html">Kullanım Şartları</a>
+                <a href="https://github.com/user/zarf">GitHub</a>
+            </div>
+            <p class="footer-copy">© 2026 Zarf. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
